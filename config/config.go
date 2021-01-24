@@ -1,4 +1,4 @@
 package config
 
-const  printerAddr  = ""
-const printerPort = ""
+const  PrinterAddr  = "192.168.10.10"
+const PrinterPort = "9090"
