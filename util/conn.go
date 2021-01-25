@@ -1,22 +1,22 @@
 package util
 
 import (
+	"bufio"
 	"net"
 	"printsServer/config"
 	"strconv"
-	"time"
-	"bufio"
 	"strings"
+	"time"
 )
 
 func GetConn() net.Conn {
-	conn, err := net.Dial("tcp", config.PrinterAddr + ":" + config.PrinterPort)
+	conn, err := net.Dial("tcp", config.PrinterAddr+":"+config.PrinterPort)
 	if err != nil {
 		WriteError(strconv.FormatInt(int64(time.Millisecond), 10) + " " + err.Error())
-		print("error " + err.Error() )
+		print("error " + err.Error())
 		// panic(err)
 	}
-	
+
 	return conn
 }
 
@@ -30,16 +30,16 @@ func GetStatus() string {
 	return RunSingleCommand(command)
 }
 
-func RunSingleCommand(command string) string{
-	conn, err := net.Dial("tcp", config.PrinterAddr + ":" + config.PrinterPort)
+func RunSingleCommand(command string) string {
+	conn, err := net.Dial("tcp", config.PrinterAddr+":"+config.PrinterPort)
 	HandleError(err)
-	write(conn, "\x1b%-12345X " + command + "\r\n")
+	_, _ = write(conn, "\x1b%-12345X "+command+"\r\n")
 	status, err := read(conn)
-	if err != nil{
+	if err != nil {
 		println(err)
 	}
-	conn.Close()
-	return string(strings.Replace(status, command, "", 1))
+	_ = conn.Close()
+	return strings.Replace(status, command, "", 1)
 }
 
 func write(conn net.Conn, content string) (int, error) {
