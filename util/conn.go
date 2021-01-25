@@ -25,6 +25,11 @@ func GetPageCount() string {
 	return RunSingleCommand(command)
 }
 
+func GetStatus() string {
+	var command = "@PJL INFO STATUS"
+	return RunSingleCommand(command)
+}
+
 func RunSingleCommand(command string) string{
 	conn, err := net.Dial("tcp", config.PrinterAddr + ":" + config.PrinterPort)
 	HandleError(err)

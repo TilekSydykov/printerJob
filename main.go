@@ -16,12 +16,12 @@ func main(){
 	r := mux.NewRouter()
 	r.HandleFunc("/", server.MainHandler)
 	r.HandleFunc("/status", server.StatusHandler)
+	r.HandleFunc("/pagecount", server.PagecountHandler)
 	http.Handle("/", r)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func beginServer(){
-	
 	fmt.Println(util.GetPageCount())
 }
 
