@@ -13,7 +13,6 @@ func GetConn() (net.Conn, error) {
 	
 	return conn, err
 }
-
 func GetPageCount() (string, error) {
 	var command = "@PJL INFO PAGECOUNT"
 	return RunSingleCommand(command)
@@ -27,6 +26,23 @@ func GetStatus() (string, error) {
 func Gettoner() (string, error) {
 	var command = "@PJL INFO TONERCOUNT5"
 	return RunSingleCommand(command)
+}
+
+func RunCommand(command string) (string, error){
+	conn, err := net.DialTimeout("tcp", config.PrinterAddr+":"+config.PrinterPort, 2 * time.Second)
+	if err != nil{
+		return "", err
+	}
+	_, err = write(conn, command)
+	if err != nil{
+		return "", err
+	}
+	status, err := read(conn)
+	if err != nil{
+		return "", err
+	}
+	_ = conn.Close()
+	return strings.Replace(status, command, "", 1), err
 }
 
 func RunSingleCommand(command string) (string, error) {

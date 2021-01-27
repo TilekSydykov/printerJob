@@ -13,6 +13,10 @@ type PageCountMessage struct {
 	PrintedPages int
 }
 
+type CommandResponce struct {
+	Responce string
+}
+
 type ErrorMessage struct {
 	Error string
 }
@@ -49,6 +53,17 @@ func StatusHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	res, _ := json.Marshal(sm)
+	_, _ = fmt.Fprintf(w, string(res))
+}
+
+func CommandHandler(w http.ResponseWriter, r *http.Request){
+	p, err := util.RunCommand(r.PostForm.Get("command"))
+	if err != nil {
+		res, _ := json.Marshal(ErrorMessage{err.Error()})
+		_, _ = fmt.Fprintf(w, string(res))
+		return
+	}
+	res, _ := json.Marshal(CommandResponce{p})
 	_, _ = fmt.Fprintf(w, string(res))
 }
 
