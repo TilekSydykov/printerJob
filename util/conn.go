@@ -4,42 +4,46 @@ import (
 	"bufio"
 	"net"
 	"printsServer/config"
-	"strconv"
 	"strings"
 	"time"
 )
 
-func GetConn() net.Conn {
-	conn, err := net.Dial("tcp", config.PrinterAddr+":"+config.PrinterPort)
-	if err != nil {
-		WriteError(strconv.FormatInt(int64(time.Millisecond), 10) + " " + err.Error())
-		print("error " + err.Error())
-		// panic(err)
-	}
-
-	return conn
+func GetConn() (net.Conn, error) {
+	conn, err := net.DialTimeout("tcp", config.PrinterAddr+":"+config.PrinterPort, 1 * time.Second)
+	
+	return conn, err
 }
 
-func GetPageCount() string {
+func GetPageCount() (string, error) {
 	var command = "@PJL INFO PAGECOUNT"
 	return RunSingleCommand(command)
 }
 
-func GetStatus() string {
+func GetStatus() (string, error) {
 	var command = "@PJL INFO STATUS"
 	return RunSingleCommand(command)
 }
 
-func RunSingleCommand(command string) string {
-	conn, err := net.Dial("tcp", config.PrinterAddr+":"+config.PrinterPort)
-	HandleError(err)
-	_, _ = write(conn, "\x1b%-12345X "+command+"\r\n")
+func Gettoner() (string, error) {
+	var command = "@PJL INFO TONERCOUNT5"
+	return RunSingleCommand(command)
+}
+
+func RunSingleCommand(command string) (string, error) {
+	conn, err := net.DialTimeout("tcp", config.PrinterAddr+":"+config.PrinterPort, 2 * time.Second)
+	if err != nil{
+		return "", err
+	}
+	_, err = write(conn, "\x1b%-12345X "+command+"\r\n")
+	if err != nil{
+		return "", err
+	}
 	status, err := read(conn)
-	if err != nil {
-		println(err)
+	if err != nil{
+		return "", err
 	}
 	_ = conn.Close()
-	return strings.Replace(status, command, "", 1)
+	return strings.Replace(status, command, "", 1), err
 }
 
 func write(conn net.Conn, content string) (int, error) {

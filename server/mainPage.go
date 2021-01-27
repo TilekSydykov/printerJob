@@ -28,7 +28,12 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func StatusHandler(w http.ResponseWriter, r *http.Request) {
-	p := util.GetStatus()
+	p, err := util.GetStatus()
+	if err != nil {
+		res, _ := json.Marshal(ErrorMessage{err.Error()})
+		_, _ = fmt.Fprintf(w, string(res))
+		return
+	}
 	stringSlice := strings.Split(p, "\n")
 	sm := StatusMessage{"", "", ""}
 	for _, s := range stringSlice {
@@ -48,8 +53,12 @@ func StatusHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func PagecountHandler(w http.ResponseWriter, r *http.Request) {
-	p := util.GetPageCount()
-
+	p, err := util.GetPageCount()
+	if err != nil {
+		res, _ := json.Marshal(ErrorMessage{err.Error()})
+		_, _ = fmt.Fprintf(w, string(res))
+		return
+	}
 	p = strings.ReplaceAll(p, " ", "")
 	p = strings.ReplaceAll(p, "\n", "")
 	p = strings.ReplaceAll(p, "\r", "")
@@ -62,5 +71,18 @@ func PagecountHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	res, _ := json.Marshal(PageCountMessage{h})
+	_, _ = fmt.Fprintf(w, string(res))
+}
+
+func LowtonerHandler(w http.ResponseWriter, r *http.Request) {
+	p, err := util.Gettoner()
+	if err != nil {
+		res, _ := json.Marshal(ErrorMessage{err.Error()})
+		_, _ = fmt.Fprintf(w, string(res))
+		return
+	}
+	print(p)
+	h := ErrorMessage{p}
+	res, _ := json.Marshal(h)
 	_, _ = fmt.Fprintf(w, string(res))
 }
