@@ -13,6 +13,7 @@ func GetConn() (net.Conn, error) {
 	
 	return conn, err
 }
+
 func GetPageCount() (string, error) {
 	var command = "@PJL INFO PAGECOUNT"
 	return RunSingleCommand(command)

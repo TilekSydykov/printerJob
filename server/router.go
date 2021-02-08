@@ -9,5 +9,8 @@ func GetRouter() *mux.Router {
 	r.HandleFunc("/pagecount", PagecountHandler)
 	r.HandleFunc("/lowtoner", LowtonerHandler)
 	r.HandleFunc("/command", CommandHandler)
+
+	r.HandleFunc("/printer/search_local", SearchLocalHandler)
+	
 	return r
 }
