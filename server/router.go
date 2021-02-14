@@ -14,11 +14,13 @@ func GetRouter() *mux.Router {
 	r.HandleFunc("/lowtoner", LowtonerHandler)
 	r.HandleFunc("/command", CommandHandler)
 
-	r.HandleFunc("/printer/search_local", SearchLocalHandler)
-
 	r.HandleFunc("/getmac", GetMacHandler)
 
-	r.HandleFunc("/printer/image", printer.PrintImage)
+	s := r.PathPrefix("/printer").Subrouter()
+	s.HandleFunc("/search_local", SearchLocalHandler)
+	s.HandleFunc("/image", printer.PrintImage)
+
+	s.HandleFunc("/print", printer.PrintPdf)
 
 	fs := http.FileServer(http.Dir("/home/terminal/scanned_images"))
 	r.PathPrefix("/images/").Handler(fs)

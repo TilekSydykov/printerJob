@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="284394fd-a753-4f8e-bcfb-f42ac8894c97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/printer/printer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/mainPage.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/mainPage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/printer/printer.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/printer/printer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/log.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/log.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/conn.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,30 +107,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="691" y="164" key="#go_build_printsServer/0.0.1920.1040@0.0.1920.1040" timestamp="1611504851256" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1611588311259">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1613110443369">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1611588311259" />
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1613110443369" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1611504848903">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1611504848903" />
-    <state width="1877" height="290" key="GridCell.Tab.0.bottom" timestamp="1613109690442">
+    <state width="1877" height="151" key="GridCell.Tab.0.bottom" timestamp="1613113630742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="290" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613109690442" />
-    <state width="1877" height="290" key="GridCell.Tab.0.center" timestamp="1613109690442">
+    <state width="1877" height="151" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613113630742" />
+    <state width="1877" height="151" key="GridCell.Tab.0.center" timestamp="1613113630742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="290" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613109690442" />
-    <state width="1877" height="290" key="GridCell.Tab.0.left" timestamp="1613109690442">
+    <state width="1877" height="151" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613113630742" />
+    <state width="1877" height="151" key="GridCell.Tab.0.left" timestamp="1613113630742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="290" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613109690442" />
-    <state width="1877" height="290" key="GridCell.Tab.0.right" timestamp="1613109690442">
+    <state width="1877" height="151" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613113630742" />
+    <state width="1877" height="151" key="GridCell.Tab.0.right" timestamp="1613113630742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="290" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613109690442" />
+    <state width="1877" height="151" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613113630742" />
     <state x="184" y="86" key="MergeDialog" timestamp="1613110409806">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -139,10 +139,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="672" y="236" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613110409814" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611588321336">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1613110446282">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1611588321336" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1613110446282" />
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613110363099">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

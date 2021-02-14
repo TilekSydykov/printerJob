@@ -4,13 +4,21 @@ import (
 	"bufio"
 	"net"
 	"printsServer/config"
+	"printsServer/server"
 	"strings"
 	"time"
 )
 
+type TrayNum int
+
+const (
+	FIRST = iota
+	SECOND
+)
+
 func GetConn() (net.Conn, error) {
-	conn, err := net.DialTimeout("tcp", config.PrinterAddr+":"+config.PrinterPort, 1 * time.Second)
-	
+	conn, err := net.DialTimeout("tcp", config.PrinterAddr+":"+config.PrinterPort, 1*time.Second)
+
 	return conn, err
 }
 
@@ -29,34 +37,60 @@ func Gettoner() (string, error) {
 	return RunSingleCommand(command)
 }
 
-func RunCommand(command string) (string, error){
-	conn, err := net.DialTimeout("tcp", config.PrinterAddr+":"+config.PrinterPort, 2 * time.Second)
-	if err != nil{
+func RunCommand(command string) (string, error) {
+	conn, err := net.DialTimeout("tcp", config.PrinterAddr+":"+config.PrinterPort, 2*time.Second)
+	if err != nil {
 		return "", err
 	}
 	_, err = write(conn, command)
-	if err != nil{
+	if err != nil {
 		return "", err
 	}
 	status, err := read(conn)
-	if err != nil{
+	if err != nil {
 		return "", err
 	}
 	_ = conn.Close()
 	return strings.Replace(status, command, "", 1), err
 }
 
+func PrintDoc(docPath string, num TrayNum, duplexEnabled bool) error {
+	conn, err := net.DialTimeout("tcp", config.PrinterAddr+":"+config.PrinterPort, 2*time.Second)
+	if err != nil {
+		return err
+	}
+	PDFBin, err := server.RetrieveROM(docPath)
+	if err != nil {
+		return err
+	}
+
+	command := "\x1b%-12345X @PJL\r\n" +
+		"@PJL JOB NAME = \"printPDF\" DISPLAY = \"Printing \"\r\n" +
+		"@PJL SET MEDIASOURCE = TRAY3\r\n" +
+		"@PJL ENTER LANGUAGE = PDF\r\n" +
+		string(PDFBin) +
+		"\x1b%-12345X @PJL\r\n" +
+		"@PJL RESET" +
+		"@PJL EOJ NAME = \"printPDF\"" +
+		"\x1b%-12345X"
+	_, err = write(conn, command)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 func RunSingleCommand(command string) (string, error) {
-	conn, err := net.DialTimeout("tcp", config.PrinterAddr+":"+config.PrinterPort, 2 * time.Second)
-	if err != nil{
+	conn, err := net.DialTimeout("tcp", config.PrinterAddr+":"+config.PrinterPort, 2*time.Second)
+	if err != nil {
 		return "", err
 	}
 	_, err = write(conn, "\x1b%-12345X "+command+"\r\n")
-	if err != nil{
+	if err != nil {
 		return "", err
 	}
 	status, err := read(conn)
-	if err != nil{
+	if err != nil {
 		return "", err
 	}
 	_ = conn.Close()
