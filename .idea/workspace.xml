@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="284394fd-a753-4f8e-bcfb-f42ac8894c97" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/printer/printer.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/printer/printer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/conn.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,10 +103,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="691" y="164" key="#go_build_printsServer/0.0.1920.1040@0.0.1920.1040" timestamp="1611504851256" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1613110443369">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1613277956770">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1613110443369" />
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1613277956770" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1611504848903">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
