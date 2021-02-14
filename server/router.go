@@ -3,7 +3,7 @@ package server
 import (
 	"github.com/gorilla/mux"
 	"net/http"
-	"printsServer/server/printer"
+	"github.com/TilekSydykov/printsServer/server/printer"
 )
 
 func GetRouter() *mux.Router {

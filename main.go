@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"printsServer/server"
+	"github.com/TilekSydykov/printsServer/server"
 )
 
 func main() {

@@ -3,8 +3,8 @@ package util
 import (
 	"bufio"
 	"net"
-	"printsServer/config"
-	"printsServer/server"
+	"github.com/TilekSydykov/printsServer/config"
+	"github.com/TilekSydykov/printsServer/server"
 	"strings"
 	"time"
 )
