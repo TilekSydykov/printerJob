@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"net"
 	"printsServer/config"
-	"printsServer/server"
+	"printsServer/filesystem"
 	"strings"
 	"time"
 )
@@ -17,6 +17,7 @@ const (
 )
 
 func GetConn() (net.Conn, error) {
+
 	conn, err := net.DialTimeout("tcp", config.PrinterAddr+":"+config.PrinterPort, 1*time.Second)
 
 	return conn, err
@@ -59,7 +60,7 @@ func PrintDoc(docPath string, num TrayNum, duplexEnabled bool) error {
 	if err != nil {
 		return err
 	}
-	PDFBin, err := server.RetrieveROM(docPath)
+	PDFBin, err := filesystem.RetrieveROM(docPath)
 	if err != nil {
 		return err
 	}

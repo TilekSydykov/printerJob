@@ -3,7 +3,6 @@ package server
 import (
 	"github.com/gorilla/mux"
 	"net/http"
-	"printsServer/server/printer"
 )
 
 func GetRouter() *mux.Router {
@@ -18,9 +17,9 @@ func GetRouter() *mux.Router {
 
 	s := r.PathPrefix("/printer").Subrouter()
 	s.HandleFunc("/search_local", SearchLocalHandler)
-	s.HandleFunc("/image", printer.PrintImage)
+	s.HandleFunc("/image", PrintImage)
 
-	s.HandleFunc("/print", printer.PrintPdf)
+	s.HandleFunc("/print", PrintPdf)
 
 	fs := http.FileServer(http.Dir("/home/terminal/scanned_images"))
 	r.PathPrefix("/images/").Handler(fs)

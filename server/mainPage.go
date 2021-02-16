@@ -42,7 +42,7 @@ func StatusHandler(w http.ResponseWriter, r *http.Request) {
 	stringSlice := strings.Split(p, "\n")
 	sm := StatusMessage{"", "", ""}
 	for _, s := range stringSlice {
-		m, n := parseString(s)
+		m, n := util.ParseString(s)
 		if m == "CODE" {
 			sm.Code = n
 		}
