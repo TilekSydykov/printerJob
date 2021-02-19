@@ -14,10 +14,18 @@ import (
 
 func SearchLocalHandler(w http.ResponseWriter, r *http.Request) {
 	var conf config.Config
+	var req = struct {
+		Gate string `json:"gate"`
+	}{""}
 	err := conf.GetConfig()
 	if err != nil {
 		_ = json.NewEncoder(w).Encode(ErrorMessage{err.Error()})
 	}
+	err = json.NewDecoder(r.Body).Decode(req)
+	if req.Gate != "" {
+		conf.LocalGate = req.Gate
+	}
+
 	for i := 0; i < 256; i++ {
 		go callToPrinter(conf, i)
 	}
@@ -26,11 +34,14 @@ func SearchLocalHandler(w http.ResponseWriter, r *http.Request) {
 func callToPrinter(conf config.Config, num int) {
 	_, err := net.DialTimeout("tcp", conf.LocalGate+string(num)+":"+config.PrinterPort, 1*time.Second)
 	if err != nil {
-		fmt.Print(conf.LocalGate + strconv.Itoa(num) + "error\n")
 		return
 	}
 	conf.Ip = conf.LocalGate + string(num)
-	_ = conf.WriteConfig()
+	err = conf.WriteConfig()
+	fmt.Print(conf.LocalGate + strconv.Itoa(num) + "error\n")
+	if err != nil {
+		print("cannot write")
+	}
 }
 
 func PrintImage(w http.ResponseWriter, r *http.Request) {
