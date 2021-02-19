@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"github.com/TilekSydykov/printsServer/server"
+	"printsServer/server"
 )
 
 func main() {
@@ -12,4 +12,3 @@ func main() {
 	http.Handle("/", server.GetRouter())
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
-

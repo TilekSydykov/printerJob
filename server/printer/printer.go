@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/signintech/gopdf"
 	"net/http"
-	"github.com/TilekSydykov/printsServer/util"
+	"printsServer/util"
 )
 
 func PrintImage(w http.ResponseWriter, r *http.Request) {
