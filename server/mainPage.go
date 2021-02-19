@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net"
 	"net/http"
-	"printsServer/util"
+	"github.com/TilekSydykov/printsServer/util"
 	"strconv"
 	"strings"
 )
