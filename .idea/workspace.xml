@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="284394fd-a753-4f8e-bcfb-f42ac8894c97" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/printer.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/printer.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +94,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="minor improvements" />
     <MESSAGE value="structure change" />
-    <option name="LAST_COMMIT_MESSAGE" value="structure change" />
+    <MESSAGE value="f" />
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
   </component>
   <component name="WindowStateProjectService">
     <state x="703" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613100902299">
@@ -106,10 +107,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="691" y="164" key="#go_build_printsServer/0.0.1920.1040@0.0.1920.1040" timestamp="1611504851256" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1613705083721">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1613705283965">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1613705083721" />
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1613705283965" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1611504848903">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -138,10 +139,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="672" y="236" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613705175674" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1613705228945">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1613705287201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1613705228945" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1613705287201" />
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613110363099">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
